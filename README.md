@@ -10,7 +10,7 @@ The GuildAPI aims to address and solve some of these issues by requiring your `a
 Because of this limited scope of data the end-developer/bot can access, this should reduce rate limits to guilds, not globally. In addition, it may be acceptable to publicly offer the reverse-search API.
   
 ## Installation ⚙️
-Firstly, you'll need to install the dependencies: `pip install sanic` & `pip install requests`
+Firstly, you'll need to install the dependencies: `pip install sanic requests`
 
 ### Environment 
 Before you start, you'll need to configure some environment variables.
@@ -18,14 +18,15 @@ Before you start, you'll need to configure some environment variables.
 * `BLOXLINK_BOT_TOKEN` Intended for the Bloxlink bot.
 * `BLOXLINK_API_TOKEN` Bloxlink API token.
 
-The following variables are intended to be stored in MongoDB, but for this example there is a single hardcoded `api-key`.
+These keys are intended to be stored in MongoDB.
 * `USER_API_TOKEN` The `api-key` header value used to simulate authentication.
 * `USER_BOT_ID` The end-developers application/bot, the core of the guild scope.
 
-**Once you are ready, using `python3`, run `./src/main.py`!**
+You're all set, run `python3 ./src/main.py`
 
 ## Endpoint Usage
 Compared to the current API, these endpoints require a guild to be provided.
+
 `http://127.0.0.1:8001/guild/{guildId}/member/{userId}`
 > Retrieves the linked Roblox account of the member in a guild.
 > * If the associated application/bot of the key is not in the guild, `403 (Forbidden)` will be returned.
