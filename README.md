@@ -10,7 +10,7 @@ The GuildAPI aims to address and solve some of these issues by requiring your `a
 Because of this limited scope of data the end-developer/bot can access, this should reduce rate limits to guilds, not globally. In addition, it may be acceptable to publicly offer the reverse-search API.
   
 ## Installation ⚙️
-Firstly, you'll need to install the dependencies: `pip install sanic requests`
+Firstly, you'll need to install the dependencies: `pip install sanic requests python-dotenv`
 
 ### Environment 
 Before you start, you'll need to configure some environment variables.
@@ -27,7 +27,10 @@ You're all set, run `python3 ./src/main.py`
 ## Endpoint Usage
 Compared to the current API, these endpoints require a guild to be provided.
 
-`http://127.0.0.1:8001/guild/{guildId}/member/{userId}`
+`http://127.0.0.1:8001/guild/{guildId}/member/{disocrdUserId}`
 > Retrieves the linked Roblox account of the member in a guild.
 > * If the associated application/bot of the key is not in the guild, `403 (Forbidden)` will be returned.
 > * If this user isn't in the guild, `204 (No Content)` will be returned. 
+
+`http://127.0.0.1:8001/guild/{guildId}/reversemember/{robloxUserId}`
+> This endpoint will always return `204` as the API doesn't support reverse search publicly.
